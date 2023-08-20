@@ -16,9 +16,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $bmiIndexer->setHuman($human);
 
     $bmi = $bmiIndexer->getBmi();
-    $interpretation = $bmiIndexer->interpretBMI();
-    $imagePath = $bmiIndexer->interpretimagePathBMI();
-    $details = $bmiIndexer->interpretdetailsBMI();
+    $interpretBMI = $bmiIndexer->interpretBMI();
+    $interpretimagePathBMI = $bmiIndexer->interpretimagePathBMI();
+    $interpretdetailsBMI = $bmiIndexer->interpretdetailsBMI();
 
     // แสดงผล
     echo "<div class='container py-5'>";
@@ -28,14 +28,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     echo "<div class='card-body'>";
     echo "<h2 class='text-center mb-4'>ผลลัพธ์</h2>";
     echo "<p class='text-center'><strong>ค่า BMI ของคุณคือ:</strong> " . $bmi . "</p>";
-    echo "<p class='text-center'><strong>" . $interpretation . "</strong></p>";
+    echo "<p class='text-center'><strong>" . $interpretBMI . "</strong></p>";
     echo "<div class='text-center'>";
-    echo "<img src='" . $imagePath . "' alt='BMI Image' class='img-fluid rounded mx-auto d-block' />";
+    echo "<img src='" . $interpretimagePathBMI . "' alt='BMI Image' class='img-fluid rounded mx-auto d-block' />";
     echo "</div>";
     echo "<div class='details'>";
     echo "<h3>ข้อแนะนำ:</h3>";
     echo "<ul>";
-    echo $details;
+    echo $interpretdetailsBMI;
     echo "</ul>";
     echo "</div>";
     echo "</div>";
